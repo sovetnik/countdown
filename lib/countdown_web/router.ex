@@ -17,6 +17,7 @@ defmodule CountdownWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/events", EventController
   end
 
   # Other scopes may use custom stacks.
@@ -36,7 +37,10 @@ defmodule CountdownWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: CountdownWeb.Telemetry
+
+      live_dashboard "/dashboard",
+        ecto_repos: [Countdown.Repo],
+        metrics: CountdownWeb.Telemetry
     end
   end
 end
