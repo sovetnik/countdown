@@ -11,7 +11,7 @@ defmodule Countdown.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      extra_applications: [:logger, :runtime_tools, :os_mon]
+      extra_applications: [:ueberauth, :ueberauth_auth0, :logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -46,7 +46,10 @@ defmodule Countdown.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:poison, "~> 5.0"},
+      {:ueberauth, "~> 0.6"},
+      {:ueberauth_auth0, "~> 2.0"}
     ]
   end
 
